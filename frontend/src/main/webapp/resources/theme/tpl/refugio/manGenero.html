@@ -1,0 +1,87 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm padder-lg" ng-init="app.settings.asideFolded = true;
+    app.settings.asideDock = false;" ng-controller="MantenimientoGenero as vm">
+    <div><span style="font-size: x-large">Registrar Generos</span></div>
+    <div class="bg-light lter b-b ">
+        <button ng-if="!vm.objDato"
+                class="pull-rigth btn  btn-sm  btn-dark btn-addon"
+                type="reset" ng-click="vm.nuevo()">
+            <i class="fa fa-info block m-b-xs"></i>
+            <span>Nuevo</span>
+        </button>
+        <button ng-if="vm.objDato"
+                class="pull-rigth btn  btn-sm  btn-success btn-addon "
+                type="submit" ng-click="vm.guardar(vm.objDato)">
+            <i class="fa fa-save block m-b-xs"></i>
+            <span>Guardar</span>
+        </button>
+        <button ng-if="vm.objDato"
+                class="pull-rigth btn  btn-sm btn-warning btn-addon"
+                type="reset" ng-click="vm.cancelar()">
+            <i class="fa fa-ban block m-b-xs  "></i>
+            <span>Cancelar</span>
+        </button>
+    </div>
+
+    <!--TAbla-->
+    <div class="row-row" ng-if="!vm.objDato">
+        <div class="col-sm-12 panel panel-body">
+            <table ng-table="vm.tableParams" show-filter="true"
+                   class="table table-condensed table-bordered table-striped"
+                   show-filter="true">
+                <tr ng-repeat="obj in vm.lstObjeto">
+                    <td class="text-center"
+                        data-title="'Codigo'"
+                        filter="{codigo:'text'}">
+                        {{obj.codigo}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Nombre'"
+                        filter="{nombre:'text'}">
+                        {{obj.nombre}}
+                    </td>
+                    <td class="text-capitalize" data-title="'Accion'">
+                        <div class="text-center">
+                            <button class="btn btn-danger btn-xs"
+                                    tooltip="{{'Eliminar'}}"
+                                    ng-click="vm.eliminar(obj)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--Nuevo-->
+    <div class="panel panel-primary " ng-if="vm.objDato">
+        <div class="panel-body">
+            <div class="col-sm-12">
+                <form id="formObjDato" name="formObjDato" class="form-validation">
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Codigo</label>
+                            <input type="text" ng-model="vm.objDato.codigo"
+                                   maxlength="10"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Genero</label>
+                            <input type="text" ng-model="vm.objDato.nombre"
+                                   maxlength="50"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

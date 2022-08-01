@@ -1,0 +1,212 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm padder-lg" ng-init="app.settings.asideFolded = true;
+    app.settings.asideDock = false;" ng-controller="MantenimientoAnimal as vm">
+    <div><span style="font-size: x-large">Registrar Mascotas</span></div>
+    <div class="bg-light lter b-b ">
+        <button ng-if="!vm.objDato"
+                class="pull-rigth btn  btn-sm  btn-dark btn-addon"
+                type="reset" ng-click="vm.nuevo()">
+            <i class="fa fa-info block m-b-xs"></i>
+            <span>Nuevo</span>
+        </button>
+        <button ng-if="vm.objDato && !vm.objDatoEditar"
+                class="pull-rigth btn  btn-sm  btn-success btn-addon "
+                type="submit" ng-click="vm.guardar(vm.objDato)">
+            <i class="fa fa-save block m-b-xs"></i>
+            <span>Guardar</span>
+        </button>
+        <button ng-if="vm.objDato && vm.objDatoEditar"
+                class="pull-rigth btn  btn-sm  btn-dark btn-addon "
+                type="submit" ng-click="vm.actualizar(vm.objDato)">
+            <i class="fa fa-save block m-b-xs"></i>
+            <span>Actualizar</span>
+        </button>
+        <button ng-if="vm.objDato"
+                class="pull-rigth btn  btn-sm btn-warning btn-addon"
+                type="reset" ng-click="vm.cancelar()">
+            <i class="fa fa-ban block m-b-xs  "></i>
+            <span>Cancelar</span>
+        </button>
+    </div>
+
+    <!--TAbla-->
+    <div class="row-row" ng-if="!vm.objDato">
+        <div class="col-sm-12 panel panel-body">
+            <table ng-table="vm.tableParams" show-filter="true"
+                   class="table table-condensed table-bordered table-striped"
+                   show-filter="true">
+                <tr ng-repeat="obj in vm.lstObjeto">
+                    <td class="text-center"
+                        data-title="'Codigo'"
+                        filter="{codigo:'text'}">
+                        {{obj.codigo}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Nombre'"
+                        filter="{nombre:'text'}">
+                        {{obj.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Descripcion'"
+                        filter="{descripcion:'text'}">
+                        {{obj.descripcion}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Raza'"
+                        filter="{raza.nombre:'text'}">
+                        {{obj.raza.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Tipo'">
+                        {{obj.raza.tipo.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Color'"
+                        filter="{color.nombre:'text'}">
+                        {{obj.color.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Tamaño'"
+                        filter="{tamano.nombre:'text'}">
+                        {{obj.tamano.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Situacion'"
+                        filter="{situacion.situacion:'text'}">
+                        {{obj.situacion.situacion}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Estado'"
+                        filter="{estado.estado:'text'}">
+                        {{obj.estado.estado}}
+                    </td>
+                    <td class="text-capitalize" data-title="'Accion'">
+                        <div class="text-right">
+                            <button class="btn btn-danger btn-xs"
+                                    tooltip="{{'Eliminar'}}"
+                                    ng-click="vm.eliminar(obj)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                            <button class="btn btn-primary btn-xs"
+                                    tooltip="{{'Actualizar'}}"
+                                    ng-click="vm.verObjeto(obj)">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--Nuevo-->
+    <div class="panel panel-primary " ng-if="vm.objDato">
+        <div class="panel-body">
+            <div class="col-sm-12">
+                <form id="formObjDato" name="formObjDato" class="form-validation">
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Codigo</label>
+                            <input type="text" ng-model="vm.objDato.codigo"
+                                   maxlength="10"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Nombre</label>
+                            <input type="text" ng-model="vm.objDato.nombre"
+                                   maxlength="50"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Descripcion</label>
+                            <input type="text" ng-model="vm.objDato.descripcion"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Seleccionar Raza Mascota</label>
+                            <select class="form-control"
+                                    required
+                                    ng-model="vm.objDato.idRaza"
+                                    ng-options="lista.idRaza as (lista.nombre+' | '+lista.tipo.nombre) for lista in vm.listaRaza">
+                                <option value=""
+                                        translate="Seleccione"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Seleccionar Color Mascota</label>
+                            <select class="form-control"
+                                    required
+                                    ng-model="vm.objDato.idColor"
+                                    ng-options="lista.idColor as lista.nombre for lista in vm.listaColor">
+                                <option value=""
+                                        translate="Seleccione"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Seleccionar Tamaño  Mascota</label>
+                            <select class="form-control"
+                                    required
+                                    ng-model="vm.objDato.idTamano"
+                                    ng-options="lista.idTamano as lista.nombre for lista in vm.listaTamano">
+                                <option value=""
+                                        translate="Seleccione"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                    <div class="col-md-7">
+                        <span>*</span>
+                        <label class="font-bold">Seleccionar Situacion Mascota</label>
+                        <select class="form-control"
+                                required
+                                ng-model="vm.objDato.idSituacion"
+                                ng-options="lista.idSituacion as lista.situacion for lista in vm.listaSituacion">
+                            <option value=""
+                                    translate="Seleccione"/>
+                        </select>
+                    </div>
+                </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-7">
+                            <span>*</span>
+                            <label class="font-bold">Seleccionar Estado Mascota</label>
+                            <select class="form-control"
+                                    required
+                                    ng-model="vm.objDato.idEstado"
+                                    ng-options="lista.idEstado as lista.estado for lista in vm.listaEstado">
+                                <option value=""
+                                        translate="Seleccione"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

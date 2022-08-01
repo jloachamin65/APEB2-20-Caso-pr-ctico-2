@@ -1,0 +1,238 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm padder-lg" ng-init="app.settings.asideFolded = true;
+    app.settings.asideDock = false;" ng-controller="MantenimientoEmpleado as vm">
+    <div><span style="font-size: x-large">Registrar Empleados</span></div>
+    <div class="bg-light lter b-b ">
+        <button ng-if="!vm.objDato"
+                class="pull-rigth btn  btn-sm  btn-dark btn-addon"
+                type="reset" ng-click="vm.nuevo()">
+            <i class="fa fa-info block m-b-xs"></i>
+            <span>Nuevo</span>
+        </button>
+        <button ng-if="vm.objDato"
+                class="pull-rigth btn  btn-sm  btn-success btn-addon "
+                type="submit" ng-click="vm.guardar(vm.objDato)">
+            <i class="fa fa-save block m-b-xs"></i>
+            <span>Guardar</span>
+        </button>
+        <button ng-if="vm.objDato"
+                class="pull-rigth btn  btn-sm btn-warning btn-addon"
+                type="reset" ng-click="vm.cancelar()">
+            <i class="fa fa-ban block m-b-xs  "></i>
+            <span>Cancelar</span>
+        </button>
+    </div>
+
+    <!--TAbla-->
+    <div class="row-row" ng-if="!vm.objDato">
+        <div class="col-sm-12 panel panel-body">
+            <table ng-table="vm.tableParams" show-filter="true"
+                   class="table table-condensed table-bordered table-striped"
+                   show-filter="true">
+                <tr ng-repeat="obj in vm.lstObjeto">
+                    <td class="text-center"
+                        data-title="'Codigo'"
+                        filter="{codigo:'text'}">
+                        {{obj.codigo}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Cargo'"
+                        filter="{cargo:'text'}">
+                        {{obj.cargo}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Descripcion'"
+                        filter="{descripcion:'text'}">
+                        {{obj.descripcion}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Identificacion'"
+                        filter="{persona.identificacion:'text'}">
+                        {{obj.persona.identificacion}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Nombre'"
+                        filter="{persona.nombre:'text'}">
+                        {{obj.persona.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Apellido Paterno'"
+                        filter="{persona.apellidoPaterno:'text'}">
+                        {{obj.persona.apellidoPaterno}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Apellido Materno'"
+                        filter="{persona.apellidoMaterno:'text'}">
+                        {{obj.persona.apellidoMaterno}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Fecha Nacimiento'">
+                        {{obj.persona.fechaNacimiento | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Correo'"
+                        filter="{persona.correo:'text'}">
+                        {{obj.persona.correo}}
+                    </td>
+                    <td class="text-capitalize" data-title="'Accion'">
+                        <!--<div class="text-center">-->
+                        <!--<button class="btn btn-danger btn-xs"-->
+                        <!--tooltip="{{'Eliminar'}}"-->
+                        <!--ng-click="vm.eliminar(obj)">-->
+                        <!--<i class="glyphicon glyphicon-trash"></i>-->
+                        <!--</button>-->
+                        <!--</div>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--Nuevo-->
+    <div class="panel panel-primary " ng-if="vm.objDato">
+        <div class="panel-body">
+            <div class="col-sm-12">
+                <form id="formObjDato" name="formObjDato" class="form-validation">
+                    <!--Usuario-->
+                    <div class="row-row">
+                        <div class="col-md-4">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Codigo</label>
+                            <input type="text" ng-model="vm.objDato.codigo"
+                                   maxlength="10"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-4">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Cargo</label>
+                            <input type="text" ng-model="vm.objDato.cargo"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-4">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Descripcion</label>
+                            <input type="text" ng-model="vm.objDato.descripcion"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <!--Persona-->
+                    <div class="row-row">
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Identificacion</label>
+                            <input type="text" ng-model="vm.objDato.identificacion"
+                                   maxlength="13"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Nombre</label>
+                            <input type="text" ng-model="vm.objDato.nombre"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Apellido Paterno</label>
+                            <input type="text" ng-model="vm.objDato.apellidoPaterno"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Apellido Materno</label>
+                            <input type="text" ng-model="vm.objDato.apellidoMaterno"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <div class="row-row">
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Correo</label>
+                            <input type="text" ng-model="vm.objDato.correo"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Descripcion Persona</label>
+                            <input type="text" ng-model="vm.objDato.descripcionPersona"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Fecha Nacimiento</label>
+                            <input type="date" ng-model="vm.objDato.fechaNacimiento"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Seleccionar Genero</label>
+                            <select class="form-control"
+                                    required
+                                    ng-model="vm.objDato.idGenero"
+                                    ng-options="lista.idGenero as lista.nombre for lista in vm.listaGeneros">
+                                <option value=""
+                                        translate="Seleccione"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                    <!--Direccion-->
+                    <div class="row-row">
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Calle Principal</label>
+                            <input type="text" ng-model="vm.objDato.callePrincipal"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Calle Secundaria</label>
+                            <input type="text" ng-model="vm.objDato.calleSecundaria"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Numero Casa</label>
+                            <input type="text" ng-model="vm.objDato.numeroCasa"
+                                   maxlength="20"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Celular</label>
+                            <input type="text" ng-model="vm.objDato.celular"
+                                   maxlength="13"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Telefono</label>
+                            <input type="text" ng-model="vm.objDato.telefono"
+                                   maxlength="50"
+                                   class="form-control" required/>
+                        </div>
+                        <div class="col-md-3">
+                            <span>*</span>
+                            <label class="font-bold">Ingresar Descripcion Direccion</label>
+                            <input type="text" ng-model="vm.objDato.descripcionDireccion"
+                                   maxlength="100"
+                                   class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="line"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

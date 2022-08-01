@@ -1,0 +1,60 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm padder-lg" ng-init="app.settings.asideFolded = true;
+    app.settings.asideDock = false;" ng-controller="MantenimientoUsuario as vm">
+    <div><span style="font-size: x-large">Usuarios</span></div>
+    <div class="bg-light lter b-b ">
+
+    </div>
+
+    <!--TAbla-->
+    <div class="row-row" ng-if="!vm.objDato">
+        <div class="col-sm-12 panel panel-body">
+            <table ng-table="vm.tableParams" show-filter="true"
+                   class="table table-condensed table-bordered table-striped"
+                   show-filter="true">
+                <tr ng-repeat="obj in vm.lstObjeto">
+                    <td class="text-center"
+                        data-title="'Usuario'"
+                        filter="{usuario:'text'}">
+                        {{obj.usuario}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Identificacion'"
+                        filter="{persona.identificacion:'text'}">
+                        {{obj.persona.identificacion}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Nombre'"
+                        filter="{persona.nombre:'text'}">
+                        {{obj.persona.nombre}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Apellido Paterno'"
+                        filter="{persona.apellidoPaterno:'text'}">
+                        {{obj.persona.apellidoPaterno}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Apellido Materno'"
+                        filter="{persona.apellidoMaterno:'text'}">
+                        {{obj.persona.apellidoMaterno}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Fecha Nacimiento'">
+                        {{obj.persona.fechaNacimiento | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Correo'"
+                        filter="{persona.correo:'text'}">
+                        {{obj.persona.correo}}
+                    </td>
+                    <td class="text-left"
+                        data-title="'Rol'"
+                        filter="{rol.nombre:'text'}">
+                        {{obj.rol.nombre}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
