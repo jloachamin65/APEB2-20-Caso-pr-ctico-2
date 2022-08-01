@@ -1,0 +1,16 @@
+com\org\arquitectura\entities\Color.class
+com\org\arquitectura\entities\Empleado.class
+com\org\arquitectura\entities\Raza.class
+com\org\arquitectura\entities\Tamano.class
+com\org\arquitectura\entities\Genero.class
+com\org\arquitectura\entities\Usuario.class
+com\org\arquitectura\entities\Situacion.class
+com\org\arquitectura\entities\Animal.class
+com\org\arquitectura\entities\Rol.class
+com\org\arquitectura\entities\Cita.class
+com\org\arquitectura\entities\Direccion.class
+com\org\arquitectura\entities\EmpleadoHorario.class
+com\org\arquitectura\entities\Horario.class
+com\org\arquitectura\entities\Persona.class
+com\org\arquitectura\entities\Tipo.class
+com\org\arquitectura\entities\Estado.class

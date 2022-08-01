@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="tipo-repository"
+          class="com.org.arquitectura.dao.TipoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="raza-repository"
+          class="com.org.arquitectura.dao.RazaDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="color-repository"
+          class="com.org.arquitectura.dao.ColorDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="estado-repository"
+          class="com.org.arquitectura.dao.EstadoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="situacion-repository"
+          class="com.org.arquitectura.dao.SituacionDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="tamano-repository"
+          class="com.org.arquitectura.dao.TamanoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="animal-repository"
+          class="com.org.arquitectura.dao.AnimalDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="genero-repository"
+          class="com.org.arquitectura.dao.GeneroDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="horario-repository"
+          class="com.org.arquitectura.dao.HorarioDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="persona-repository"
+          class="com.org.arquitectura.dao.PersonaDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="rol-repository"
+          class="com.org.arquitectura.dao.RolDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="usuario-repository"
+          class="com.org.arquitectura.dao.UsuarioDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="direccion-repository"
+          class="com.org.arquitectura.dao.DireccionDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="empleado-repository"
+          class="com.org.arquitectura.dao.EmpleadoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="empleadoHorario-repository"
+          class="com.org.arquitectura.dao.EmpleadoHorarioDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="cita-repository"
+          class="com.org.arquitectura.dao.CitaDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="hibernate4SessionFactory"/>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="tipo-service"
+          class="com.org.arquitectura.service.TipoServiceImpl">
+        <property name="tipoDao">
+            <ref bean="tipo-repository"/>
+        </property>
+    </bean>
+
+    <bean id="raza-service"
+          class="com.org.arquitectura.service.RazaServiceImpl">
+        <property name="razaDao">
+            <ref bean="raza-repository"/>
+        </property>
+    </bean>
+
+    <bean id="color-service"
+          class="com.org.arquitectura.service.ColorServiceImpl">
+        <property name="colorDao">
+            <ref bean="color-repository"/>
+        </property>
+    </bean>
+
+    <bean id="estado-service"
+          class="com.org.arquitectura.service.EstadoServiceImpl">
+        <property name="estadoDao">
+            <ref bean="estado-repository"/>
+        </property>
+    </bean>
+
+    <bean id="situacion-service"
+          class="com.org.arquitectura.service.SituacionServiceImpl">
+        <property name="situacionDao">
+            <ref bean="situacion-repository"/>
+        </property>
+    </bean>
+
+    <bean id="tamano-service"
+          class="com.org.arquitectura.service.TamanoServiceImpl">
+        <property name="tamanoDao">
+            <ref bean="tamano-repository"/>
+        </property>
+    </bean>
+
+    <bean id="animal-service"
+          class="com.org.arquitectura.service.AnimalServiceImpl">
+        <property name="animalDao">
+            <ref bean="animal-repository"/>
+        </property>
+    </bean>
+
+    <bean id="genero-service"
+          class="com.org.arquitectura.service.GeneroServiceImpl">
+        <property name="generoDao">
+            <ref bean="genero-repository"/>
+        </property>
+    </bean>
+
+    <bean id="horario-service"
+          class="com.org.arquitectura.service.HorarioServiceImpl">
+        <property name="horarioDao">
+            <ref bean="horario-repository"/>
+        </property>
+    </bean>
+
+    <bean id="persona-service"
+          class="com.org.arquitectura.service.PersonaServiceImpl">
+        <property name="personaDao">
+            <ref bean="persona-repository"/>
+        </property>
+    </bean>
+
+    <bean id="rol-service"
+          class="com.org.arquitectura.service.RolServiceImpl">
+        <property name="rolDao">
+            <ref bean="rol-repository"/>
+        </property>
+    </bean>
+
+    <bean id="usuario-service"
+          class="com.org.arquitectura.service.UsuarioServiceImpl">
+        <property name="usuarioDao">
+            <ref bean="usuario-repository"/>
+        </property>
+    </bean>
+
+    <bean id="direccion-service"
+          class="com.org.arquitectura.service.DireccionServiceImpl">
+        <property name="direccionDao">
+            <ref bean="direccion-repository"/>
+        </property>
+    </bean>
+
+    <bean id="empleado-service"
+          class="com.org.arquitectura.service.EmpleadoServiceImpl">
+        <property name="empleadoDao">
+            <ref bean="empleado-repository"/>
+        </property>
+    </bean>
+
+    <bean id="empleadoHorario-service"
+          class="com.org.arquitectura.service.EmpleadoHorarioServiceImpl">
+        <property name="empleadoHorarioDao">
+            <ref bean="empleadoHorario-repository"/>
+        </property>
+    </bean>
+
+    <bean id="cita-service"
+          class="com.org.arquitectura.service.CitaServiceImpl">
+        <property name="citaDao">
+            <ref bean="cita-repository"/>
+        </property>
+    </bean>
+
+</beans>

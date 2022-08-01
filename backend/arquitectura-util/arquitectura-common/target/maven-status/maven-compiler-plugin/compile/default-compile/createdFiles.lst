@@ -1,0 +1,7 @@
+com\org\arquitectura\util\PagedResult.class
+com\org\arquitectura\common\RefugioSearchException.class
+com\org\arquitectura\util\FilterParam.class
+com\org\arquitectura\common\RefugioServerException.class
+com\org\arquitectura\util\FieldFilter.class
+com\org\arquitectura\common\RefugioProcessException.class
+com\org\arquitectura\common\RefugioPersistException.class
