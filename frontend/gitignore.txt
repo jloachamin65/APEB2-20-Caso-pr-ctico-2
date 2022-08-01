@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.iml
+*.iws
+*.ipr
+.idea
+/npm-debug.log
+/package-lock.json
+target
+/.ideaDataSources/
+/.project
+/.classpath
+/.settings/
+/.sass-cache/
+/.idea/
+/node
+/node_modules/
+/src/main/webapp/resources/theme/min/
